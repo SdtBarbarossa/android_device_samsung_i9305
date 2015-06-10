@@ -33,7 +33,7 @@ COMMON_GLOBAL_CFLAGS += -DCAMERA_WITH_CITYID_PARAM
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/samsung/smdk4412
-TARGET_KERNEL_CONFIG := custom_i9305_defconfig
+TARGET_KERNEL_CONFIG := cyanogenmod_i9305_defconfig
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/samsung/i9305/rootdir/fstab.smdk4x12
@@ -44,6 +44,24 @@ TARGET_OTA_ASSERT_DEVICE := m3,m3xx,i9305,GT-I9305
 
 # inherit from the proprietary version
 -include vendor/samsung/i9305/BoardConfigVendor.mk
+
+# TWRP
+TW_THEME := portrait_hdpi
+TARGET_USERIMAGES_USE_F2FS := true
+RECOVERY_SDCARD_ON_DATA := true
+BOARD_HAS_NO_REAL_SDCARD := true
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+HAVE_SELINUX := true
+# TW_INCLUDE_JB_CRYPTO := true
+TW_NO_REBOOT_BOOTLOADER := true
+TW_HAS_DOWNLOAD_MODE := true
+TW_INTERNAL_STORAGE_PATH := "/data/media"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+TW_MAX_BRIGHTNESS := 255
+TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
+
 
 # Selinux
 BOARD_SEPOLICY_DIRS += \

@@ -74,7 +74,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     com.android.nfc_extras
 
-$(call inherit-product, vendor/nameless/config/nfc_enhanced.mk)
+$(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -85,6 +85,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
+
+# Allow tethering without provisioning app
+PRODUCT_PROPERTY_OVERRIDES += \
+    net.tethering.noprovisioning=true
 
 # Include common makefile
 $(call inherit-product, device/samsung/smdk4412-common/common.mk)

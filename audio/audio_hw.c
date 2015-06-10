@@ -782,11 +782,11 @@ static void select_output_device(struct m0_audio_device *adev)
         if (speaker_on || earpiece_on || headphone_on) {
             ALOGD("%s: set voicecall route: default_input", __func__);
             set_bigroute_by_array(adev->mixer, default_input, 1);
-            set_noise_supression(adev, 1);
+			set_noise_supression(adev, 1);
         } else {
             ALOGD("%s: set voicecall route: default_input_disable", __func__);
             set_bigroute_by_array(adev->mixer, default_input_disable, 1);
-            set_noise_supression(adev, 0);
+			set_noise_supression(adev, 0);
         }
 
         if (headset_on) {
